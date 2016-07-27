@@ -33,7 +33,7 @@ def secret_formula(started):
 		# returns the values of jelly_beans, jars, and crates when the function is called
 		return jelly_beans, jars, crates
 # establish the starting_point	
-start_point = 10000
+start_point = int(raw_input("Enter a starting point for the recipe: "))
 # sets beans, jars, and crates as the returned output of secret_formula(start_point)
 beans, jars, crates = secret_formula(start_point)
 # print string and call the variable start_point
