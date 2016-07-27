@@ -24,8 +24,10 @@ def divide(a, b):
 print "Let's do some math with just functions!"
 
 # establish variables taking argument inputs
+#a, b = [float(x) for x in raw_input("Enter two numbers for age here: ").split()]
+#age = add(a, b)
 age = add(20, 6)
-height = subtract(80, 11)
+height = subtract(a, b)
 weight = multiply(82, 2)
 iq = divide(100, 2)
 
@@ -37,7 +39,12 @@ print "Age: %d, Height: %d, Weight: %d, IQ: %d" % (age, height, weight, iq)
 
 ### Extra Credit Puzzle ###
 print "Here is a puzzle."
-
+""" start with the most encapsulated equation. 
+iq(50) / 2 = 25
+multiply weight(164) * 25 = 4100
+subtract height(69) - 4100 = -4031
+add age(26) + -4031 = -4005
+"""
 what = add(age, subtract(height, multiply(weight, divide(iq, 2))))
 
 print "That becomes: ", what, "Can you do it by hand?"

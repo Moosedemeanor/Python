@@ -1,0 +1,15 @@
+Symbol List for Review
+
+" or ' - used for enclosing string literals
+# - pound sign; used for created comments in code
+, - comma; used to suppress a new line
+
+= - assigns values from right side operands to left side operand
++= - it adds right operand to the left operand and assign the result to left operand
+-= - subtract and
+*= - multiply and
+/= - divide and
+%= - modulus and; it takes modulus using two operands and assign the result to left
+**= - exponent and
+//= - floor division
+
