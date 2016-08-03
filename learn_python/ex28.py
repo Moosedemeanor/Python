@@ -31,4 +31,20 @@ not ("testing" == "testing" and "Zed" == "Cool Guy")	# True
 ** Any AND expression that has a FALSE is immediately FALSE.
 ** Any OR expression that has a TRUE is immediately TRUE.
 
+**					Exponentiation (raise to the power)
+~ + -				Complement, unary plus and minus
+* / % //		Multiply, divide, modulo and floor division
++ -					Addition and Substraction
+>> <<				Right and left bitwise shift
+&						Bitwise 'AND'
+^|					Bitwise exclusive 'OR' and regular 'OR'
+<= <> >=		Comparision operators
+<> == !=		Equality operators
+= %= /=			Assignment operators
+//= -=			Assignment operators
++= *= **=		Assignment operators 
+is is not		Identity operators
+in not in		Membership operators
+not or and	Logical operators
+
 """
