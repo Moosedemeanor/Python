@@ -30,8 +30,12 @@ def gold_room():
 		# define variable choice with an integer input
     choice = int(raw_input("> "))
     # define variable how_much as the integer entered into the variable choice
-    how_much = int(choice)
-		# if the integer input into how_much is less than or equal to 50
+    try:
+        how_much = int(choice)
+    except:
+        print "I'm pretty sure that wasn't a number. Maybe you should try again."
+        gold_room()
+    # if the integer input into how_much is less than or equal to 50
     if how_much <= 50:
         # print string
         print "Nice, you're not greedy, you win!"
@@ -115,7 +119,7 @@ def start():
 				bear_room()
 		# if the user inputs 'right' call the 'cthulhu_room' function with no arguments
 		elif choice == "right":
-				cthulu_room()
+				cthulhu_room()
 		# if the user inputs anything else, kill them
 		else:
 				dead("You stumble around the room until you starve.")
