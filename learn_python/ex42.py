@@ -8,7 +8,10 @@ has-a - use when you talk about objects and classes that are related only becaus
 
 ## Animal is-a object
 class Animal(object):
-		pass
+		
+		def __init__(self, name):
+				self.name = name
+				print self.name, "is an animal"
 
 ## Dog is-a Animal
 class Dog(Animal):
@@ -16,23 +19,26 @@ class Dog(Animal):
 		def __init__(self, name):
 				## Dog has-a name
 				self.name = name
+				print self.name, "is a dog."
 
 ## Cat is-a Animal
-class Cat(Animal)
+class Cat(Animal):
 
 		def __init__(self, name):
 				## Cat has a name
 				self.name = name
+				print self.name, "is a cat."
 				
 ## Person is-a object
 class Person(object):
 
 		def __init__(self, name):
 				## Person has-a name
-				self.pet = name
+				self.name = name
 				
 				## Person has-a pet
 				self.pet = None
+				print self.name, "is a person."
 
 ## Employee is-a Person
 class Employee(Person):
@@ -42,6 +48,7 @@ class Employee(Person):
 				super(Employee, self).__init__(name)
 				## Employee has-a salary
 				self.salary = salary
+				print self.name, "is an employee with a salary of $", self.salary
 				
 ## Fish is-a object
 class Fish(object):
@@ -59,3 +66,15 @@ rover = Dog("Rover")
 satan = Cat("Satan")
 ## mary is-a Person
 mary = Person("Mary")
+## mary has-a pet named satan
+mary.pet = satan
+## frank is-a employee with a salary of $120,000
+frank = Employee("Frank", 120000)
+## frank has-a pet named rover
+frank.pet = rover
+## flipper is-a Fish
+flipper = Fish()
+## crouse is-a Salmon
+crouse = Salmon()
+## harry is-a Halibut
+harry = Halibut()
