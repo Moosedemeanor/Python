@@ -1,0 +1,57 @@
+Socket Notes
+URL: https://docs.python.org/2/howto/sockets.html
+
+Client Socket - an endpoint of a conversation
+Server Socket - more like a 'switchboard' operator
+
+- A client application (i.e. Web Browser) uses "client" sockets exclusively
+- A web server uses both "server" sockets and "client" sockets
+
+IPC - Inter-process communication: the mechanisms an operating system provides to allow 
+processes it manages to share data. Typically categorized as clients and servers, where
+client requests data and the server responds to client requests.
+		- A Socket is a method of IPC.
+		- Socket: a data stream sent over a network interface, either to a different process
+							on the same computer or to another computer on the network. Typically byte-
+							oriented, sockets rarely preserve message boundaries. Data written through
+							a socket requires formatting to preserve message boundaries.
+INET - Internet
+AF_INET - Address from the Internet
+SOCK_STREAM - TCP connection
+SOCK_DGRM - UDP connection
+
+All a "server" does is produce "client" sockets created in response to some other 
+"client" socket doing a connect() to the host and port the "server" socket it bound to.
+
+** A web browser's "client" socket and a web server's "client" socket are identical.
+
+- There are two 'verbs' for communication : 'send' and 'recv'
+		'read' and 'write' are also options (that is how Java presents sockets)
+		** you also have to 'flush' sockets
+		'send' and 'receive' operate on the network buffers - their major focus
+
+A protocol like HTTP uses a socket for only one transfer.
+		The client send a request then reads a reply. Done. The socket is discarded.
+				This means the client can detect the end of the reply by receiving 0 bytes.
+				
+** There is no End of Transfer (EOT) on a socket. If a socket 'send' or 'recv' returns
+	 after handling 0 bytes, the connection has been broken. If the connection has not been
+	 broken you may wait on a 'recv' FOREVER, because the socket will NOT tell you that
+	 there is nothing more to read (for now).
+
+- Messages must:
+		Be Fixed Length
+		Delimited
+		Indicate How Long They Are
+		End by shutting down the connection.
+		
+The easiest enhancement is to make the first character of the message an indicator of the
+message type , and have the type determine the length.
+
+You must use two 'recv' loops:
+		the first to determine the message length
+		the second to get the data portion of the message
+		
+You're supposed to use 'shutdown' on a socket before you 'close' it
+		shutdown(1) - this tells the server that the client is done sending but can still recv
+
