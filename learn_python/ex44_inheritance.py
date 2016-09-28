@@ -53,3 +53,4 @@ son.altered()
 	 unrelated places and situations.
 3. Use inheritance only when there are clearly related reusable pieces of code that 
    fit under a single common concept or if you have to because of something you're using.
+"""
