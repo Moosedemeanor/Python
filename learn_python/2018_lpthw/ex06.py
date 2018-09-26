@@ -9,7 +9,7 @@ print y
 # prints and pipes in the previous variables
 print "I said %r." % x
 print "I also said: '%s'." % y
-# makes the variable 'hilarious' false
+# makes the boolean variable 'hilarious' false
 hilarious = False
 joke_evaluation = "Isn't that joke so funny?! %r"
 # prints the defined variables
